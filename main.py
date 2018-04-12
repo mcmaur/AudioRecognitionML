@@ -52,8 +52,10 @@ print(np.shape(train))
 features_train, features_test, labels_train, labels_test = model_selection.train_test_split(train, labels)#, shuffle=False)
 print(labels_test)
 
-from sklearn.naive_bayes import GaussianNB
-clf = GaussianNB()
+# from sklearn.naive_bayes import GaussianNB
+# clf = GaussianNB()
+from sklearn.neighbors import KNeighborsClassifier #http://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html
+clf = KNeighborsClassifier()
 clf.fit(features_train, labels_train)
 accuracy = clf.score(features_test, labels_test)
 print("accuracy: "+str(accuracy))
