@@ -11,7 +11,8 @@ import numpy as np
 
 PATH = './rec_word_carboidrati/'
 
-train = np.array([])
+# train = np.array([])
+train = []
 labels = np.array([])
 
 for filename in sorted(os.listdir(PATH)):
@@ -35,10 +36,14 @@ for filename in sorted(os.listdir(PATH)):
     # plt.title(filename)
     # plt.show()
     # print(data)
-    train = np.append(train,data)
+    # train = np.append(train,data)
+    train.append(data)
 
 
 
+
+
+print(np.shape(train))
 print(train)
 print(labels)
 
