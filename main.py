@@ -8,6 +8,7 @@ import glob
 import matplotlib.pyplot as plt
 import time
 import numpy as np
+from sklearn import model_selection
 
 PATH = './rec_word_carboidrati/'
 
@@ -37,20 +38,22 @@ for filename in sorted(os.listdir(PATH)):
     # plt.show()
     # print(data)
     # train = np.append(train,data)
-    train.append(data)
+    # print(filename+": "+str(np.shape(data[:55501])))
+    train.append(data[:55501])
 
 
 
 
 
 print(np.shape(train))
-print(train)
-print(labels)
+# print(train)
+# print(labels)
 
+features_train, features_test, labels_train, labels_test = model_selection.train_test_split(train, labels)#, shuffle=False)
+print(labels_test)
 
 from sklearn.naive_bayes import GaussianNB
 clf = GaussianNB()
-clf.fit(train, labels)
-# clf.fit(feature_training, label_training)
-# prediction = clf.predict(feature_test)
-# accuracy = clf.score(feature_test, label_test)
+clf.fit(features_train, labels_train)
+accuracy = clf.score(features_test, labels_test)
+print("accuracy: "+str(accuracy))
