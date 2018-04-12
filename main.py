@@ -10,7 +10,7 @@ import time
 import numpy as np
 from sklearn import model_selection
 
-PATH = './rec_word_carboidrati/'
+PATH = './recordings/'
 
 # train = np.array([])
 train = []
